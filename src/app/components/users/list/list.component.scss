@@ -1,0 +1,28 @@
+
+
+.info-user {
+    display: flex;
+    flex-direction: row;
+    // justify-content: space-between;
+
+    img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+    }
+
+    .container-name {
+        margin-left: 30px;
+        
+    }
+
+    .container-name p:nth-child(1) {
+        font-weight: 600 !important;
+        margin-bottom: .01em !important;
+    }
+
+
+    .container-name p:nth-child(2) {
+        font-weight: 400 !important;
+    }
+}
