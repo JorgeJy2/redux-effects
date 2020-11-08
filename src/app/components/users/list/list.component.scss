@@ -6,8 +6,8 @@
     // justify-content: space-between;
 
     img {
-        width: 60px;
-        height: 60px;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
     }
 
@@ -24,5 +24,22 @@
 
     .container-name p:nth-child(2) {
         font-weight: 400 !important;
+        margin-bottom: 0 !important;
+    }
+}
+
+.status{
+    background-color: greenyellow;
+    padding: 2.5px 15px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    div {
+        margin: auto;
+        margin-right: 5px;
+        background-color: green;
+        width: 8px !important;
+        height: 8px !important;
+        border-radius: 50%;
     }
 }

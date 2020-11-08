@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 import { User } from '../models/user.model';
 
 @Injectable({
@@ -15,16 +14,16 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(`${this.URL_ROOT}?per_page=${this.USER_PER_PAGE}`).pipe(
+  getUsers(){
+    return this.http.get<User[]>(`${this.URL_ROOT}?per_page=${this.USER_PER_PAGE}&delay=5`).pipe(
       map(responseUser => responseUser['data']),
-      catchError(err => {
-        console.error(err);
-        if (err.status === 404) {
-          throw new Error('404 NOT FOUND');
-        }
-        throw new Error('EROR SERVICE unknown');
-      }),
+    );
+  }
+
+  getUserById(id: number) {
+    return this.http.get<User>(`${this.URL_ROOT}/${id}`).pipe(
+      tap(console.log),
+      map(responseUser => responseUser['data']),
     );
   }
 }

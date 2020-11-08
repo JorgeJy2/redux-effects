@@ -1,5 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body {
-    color: rgb(73, 73, 73) !important;
+html,
+body {
+  color: rgb(73, 73, 73) !important;
+}
+
+table {
+    width: 100%;
+    border: 1px solid rgba(192, 192, 192, 0.342) ;
+    thead {
+        background-color: rgb(230, 230, 230);
+        tr {
+            th {
+                font-weight: 600;
+                text-transform: uppercase;
+                padding: 10px 20px;
+            }
+        }
+    }
+  tbody {
+      tr {
+          border-bottom: 1px solid rgb(192, 192, 192) ;
+          td {
+              padding: 10px 20px;
+              .vertical {
+          height: 40px !important;
+          min-height: 40px !important;
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+
+    tr:hover {
+       cursor: pointer;
+      -webkit-box-shadow: 1px 1px 9px -2px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 1px 1px 9px -2px rgba(0, 0, 0, 0.75);
+      box-shadow: 1px 1px 9px -2px rgba(0, 0, 0, 0.75);
+    }
+  }
 }

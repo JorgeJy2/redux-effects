@@ -1,1 +1,18 @@
-<p>user works!</p>
+<div *ngIf="loading">
+  <p>Loading</p>
+</div>
+
+
+
+<div class="container">
+  <div class="card-user" *ngIf="!loading">
+    <div class="diamond">
+      <img [src]="user?.avatar" />
+    </div>
+    <p class="name">
+      {{user.first_name}} {{user.last_name}}
+    </p>
+    <p> {{user.email}}</p>
+    <a routerLink="/list" class="btn btn-secondary">Regresar</a>
+  </div>
+</div>

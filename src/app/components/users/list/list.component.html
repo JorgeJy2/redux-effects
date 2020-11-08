@@ -1,14 +1,14 @@
-<table class="table table-hover">
+<table *ngIf="!loading">
     <thead>
       <tr>
         <th scope="col">User</th>
         <th scope="col">Email</th>
-        <th scope="col">Details</th>
+        <th scope="col">Status</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of users">
-        <th>
+      <tr *ngFor="let user of users" [routerLink]="['/user', user.id]">
+        <td>
             <div class="info-user">
                 <img [src]="user.avatar" [alt]="user.first_name">
                <span class="container-name">
@@ -16,11 +16,28 @@
                    <p> {{user.last_name}}</p>
                </span>
             </div>
-        </th>
-        <td>{{user.email}}</td>
-        <td>
-            <button type="button"  class="btn btn-outline-secondary btn-sm">Details</button>
         </td>
+        <td>
+            <div class="vertical">
+                {{user.email}}
+            </div>
+        </td>
+        <td>
+            <div class="vertical">
+                <span class="status">
+                    <div></div>
+                    Active
+                </span>
+            </div>
+        </td>
+       
       </tr>
     </tbody>
   </table>
+
+  <h4 *ngIf="loading">Loading </h4>
+
+  <p *ngIf="error">
+    {{error.status}}
+    {{error.message}}
+</p>
