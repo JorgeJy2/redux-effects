@@ -1,6 +1,9 @@
 <app-navbar></app-navbar>
 
 <div class="container p-3">
-  <!-- <app-list></app-list> -->
   <router-outlet></router-outlet>
 </div>
+
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="line-spin-fade-rotating" [fullScreen]="true">
+  <p style="color: white"> Loading... </p>
+</ngx-spinner>

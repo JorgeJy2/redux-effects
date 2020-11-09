@@ -14,7 +14,6 @@ import { User } from '../../../models/user.model';
 export class UserComponent implements OnInit {
 
   user: User = null;
-  loading: boolean = true;
 
   constructor(private router: ActivatedRoute, private store: Store<AppState>) { }
 
@@ -28,10 +27,9 @@ export class UserComponent implements OnInit {
 
     this.store.select('user').pipe(
       filter(({ user }) => user !== null)
-    ).subscribe(({ user, loading }) => {
+    ).subscribe(({ user }) => {
       console.log(user);
       this.user = user;
-      this.loading = loading;
     });
   }
 

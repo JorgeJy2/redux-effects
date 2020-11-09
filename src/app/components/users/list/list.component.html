@@ -1,4 +1,4 @@
-<table *ngIf="!loading">
+<table >
     <thead>
       <tr>
         <th scope="col">User</th>
@@ -34,8 +34,6 @@
       </tr>
     </tbody>
   </table>
-
-  <h4 *ngIf="loading">Loading </h4>
 
   <p *ngIf="error">
     {{error.status}}

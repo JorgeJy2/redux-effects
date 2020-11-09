@@ -5,22 +5,31 @@ import { loadUsers, loadUsersSuccess, loadUsersError } from '../actions/users.ac
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user.model';
 import { of } from 'rxjs';
-
+import { Store } from '@ngrx/store';
+import { AppState } from '../app.reducer';
+import { isLoading, stopLoading } from '../actions/ui.actions';
 
 @Injectable()
 export class UsersEffects {
 
     constructor(private actions$: Actions,
-        private userService: UserService) { }
+                private userService: UserService,
+                private store: Store<AppState>) { }
 
     loadUsers$ = createEffect(
         () => this.actions$.pipe(
             ofType(loadUsers),
+            tap(() => this.store.dispatch(isLoading())),
             mergeMap(
                 () => this.userService.getUsers().pipe(
-                    tap(data => console.log('effect tap LOAD USER ', data)),
-                    map((users: User[]) => loadUsersSuccess({users})),
-                    catchError(error => of (loadUsersError({payload: error})))
+                    map((users: User[]) => {
+                        this.store.dispatch(stopLoading());
+                        return loadUsersSuccess({ users });
+                    }),
+                    catchError(error => {
+                        this.store.dispatch(stopLoading());
+                        return of(loadUsersError({ payload: error }));
+                    })
                 )
             )
         )
