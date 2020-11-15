@@ -1,7 +1,7 @@
 
 <div class="container">
   <div class="card-user">
-    <div class="diamond">
+    <div class="diamond" *ngIf="user">
       <img [src]="user?.avatar" />
     </div>
     <p class="name">
