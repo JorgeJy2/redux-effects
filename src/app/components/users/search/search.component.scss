@@ -1,0 +1,13 @@
+
+.container-search{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    input {
+        width: 78%;
+    }
+    button {
+        width: 18%;
+    }
+}
+

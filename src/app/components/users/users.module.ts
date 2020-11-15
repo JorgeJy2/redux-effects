@@ -3,17 +3,19 @@ import { CommonModule } from '@angular/common';
 import { ListComponent } from './list/list.component';
 import { UserComponent } from './user/user.component';
 import { RouterModule } from '@angular/router';
+import { SearchComponent } from './search/search.component';
+import { PageComponent } from './page/page.component';
 
 
 
 @NgModule({
-  declarations: [ListComponent, UserComponent],
+  declarations: [ListComponent, UserComponent, SearchComponent, PageComponent],
   imports: [
     CommonModule,
     RouterModule
   ],
   exports: [
-    ListComponent, UserComponent
+    ListComponent, UserComponent, PageComponent
   ]
 })
 export class UsersModule { }

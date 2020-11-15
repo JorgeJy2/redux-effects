@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  selector: 'app-search',
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class SearchComponent implements OnInit {
 
   constructor(private router: Router) { }
 
@@ -21,5 +21,4 @@ export class NavbarComponent implements OnInit {
     console.log(idUser);
     this.router.navigate(['/user', idUser]);
   }
-
 }

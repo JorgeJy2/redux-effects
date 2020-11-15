@@ -17,7 +17,7 @@ const initialState: UsersState = {
 
 const _usersReducer = createReducer(
     initialState,
-    on(loadUsers, state => ({ ...state, loading: true })),
+    on(loadUsers, state => ({ ...state })),
     on(loadUsersSuccess, (state, { users }) => ({ ...state, loaded: true, users: [...users] })),
     on(loadUsersError, (state, { payload }) => ({ ...state, loaded: false, error: payload })),
 )
